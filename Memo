@@ -1,0 +1,8 @@
+ USE mynews;
+ CREATE user Laravel IDENTIFIED BY 'fujimiya5';
+ grant all privileges on mynews.* to 'industrybaby';
+
+ php artisan ui bootstrap --auth
+ npm install
+ npm run dev
+ php artisan migrate
