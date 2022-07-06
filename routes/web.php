@@ -10,6 +10,9 @@ Route::controller(NewsController::class)->prefix('admin')->middleware('auth')->n
   Route::get('news/create', 'add')->name('add');
   Route::post('news/create', 'create')->name('create');
   Route::get('news', 'index')->name('index');
+  Route::get('news/edit', 'edit')->name('edit');
+  Route::post('news/edit', 'update')->name('update');
+  Route::get('news/delete', 'delete')->name('delete');
 });
 
 use App\Http\Controllers\Admin\ProfileController;
@@ -20,6 +23,7 @@ Route::controller(ProfileController::class)->prefix('admin')->middleware('auth')
   Route::get('profile/edit', 'edit')->name('edit');
   Route::post('profile/edit', 'update')->name('update');
   Route::get('profile', 'index')->name('index');
+  Route::get('profile/delete', 'delete')->name('delete');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
