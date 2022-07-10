@@ -24,12 +24,12 @@
                         <label class="col-md-2" for="gender">性別</label>
                             <div class="col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="option1" checked>
-                                    <label class="form-check-label" for="flexRadioDefault1">男性</label>
+                                    <input class="form-check-input" type="radio" name="gender" id="gender_male" value="男性" @if ($profile_form->gender == "男性") checked @endif >
+                                    <label class="form-check-label" for="gender_male">男性</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="option2">
-                                    <label class="form-check-label" for="flexRadioDefault2">女性</label>
+                                    <input class="form-check-input" type="radio" name="gender" id="gender_female" value="女性" @if ($profile_form->gender == "女性") checked @endif >
+                                    <label class="form-check-label" for="gender_female">女性</label>
                                 </div>
                             </div>
                     </div>
@@ -53,6 +53,18 @@
                         </div>
                     </div>
                 </form>
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($profile_form->histories != NULL)
+                                @foreach ($profile_form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
