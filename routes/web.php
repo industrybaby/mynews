@@ -16,6 +16,7 @@ Route::controller(NewsController::class)->prefix('admin')->middleware('auth')->n
 });
 
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\NewsController as ControllersNewsController;
 
 Route::controller(ProfileController::class)->prefix('admin')->middleware('auth')->name('profile.')->group(function() {
   Route::get('profile/create', 'add')->name('add');
@@ -28,3 +29,7 @@ Route::controller(ProfileController::class)->prefix('admin')->middleware('auth')
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
+
+Route::get('/', [App\Http\Controllers\NewsController::class, 'index']);
+
+
